@@ -1,4 +1,4 @@
-import getpass
+import pwinput
 from operate_ussd import Operators
 from user import Farmer, Buyer
 
@@ -14,7 +14,7 @@ def main():
         choice = input("Choose an option from 1 to 5: ").strip()
         if choice == "1":
             phone_no = input("Enter phone number: "). strip()
-            pin = getpass.getpass("Enter your PIN: ").strip()
+            pin = pwinput.pwinput(prompt="Enter your PIN (4 digits): ", mask="*").strip()
             role, user = operation.login(phone_no, pin)
             if role:
                 print(f"Login Successful: Welcome, {role}")
@@ -26,8 +26,8 @@ def main():
             name = input("Enter your name: ").strip()
             location = input("Enter your location: ").strip()
             phone_no = input("Enter your phone number (11 digits): ").strip()
-            pin = getpass.getpass("Enter your PIN (4 digits): ").strip()
-            confirm_pin = getpass.getpass("Confirm your PIN: ").strip()
+            pin = pwinput.pwinput(prompt="Enter your PIN (4 digits): ", mask="*").strip()
+            confirm_pin = pwinput.pwinput(prompt="Confirm your PIN (4 digits): ", mask="*").strip()
             if pin != confirm_pin:
                 print("PINs do not match, check again")
                 continue
@@ -42,8 +42,8 @@ def main():
             name = input("Enter your name: ").strip()
             location = input("Enter your location: ").strip()
             phone_no = input("Enter phone number (11 digits): ").strip()
-            pin = getpass.getpass("Enter PIN (4 digits): ").strip()
-            confirm_pin = getpass.getpass("Confirm PIN: ").strip()
+            pin = pwinput.pwinput(prompt="Enter your PIN (4 digits): ", mask="*").strip()
+            confirm_pin = pwinput.pwinput(prompt="Confirm your PIN (4 digits): ", mask="*").strip()
             if pin != confirm_pin:
                 print("PINs do not match, check again")
                 continue
@@ -54,13 +54,17 @@ def main():
 
         elif choice == "4":
             phone_no = input("Enter your phone number: ").strip()
-            new_pin = getpass.getpass("Enter NEW PIN (4 digits): ").strip()
-            confirm_pin = getpass.getpass("Confirm NEW PIN: ").strip()
+            new_pin = pwinput.pwinput(prompt="Enter your PIN (4 digits): ", mask="*").strip()
+            confirm_pin = pwinput.pwinput(prompt="Confirm your PIN (4 digits): ", mask="*").strip()
             if new_pin != confirm_pin:
                 print("PINs do not match, Try Again")
                 continue
             success, message = operation.pin_reset(phone_no, new_pin)
             print(message)
+
+        elif choice == "5":
+             print("Thank You banking food cheaper... Goodbye and Thank You!!!")
+             break
 
     else:
             print("Invalid Option, Please choose between 1 to 5")
