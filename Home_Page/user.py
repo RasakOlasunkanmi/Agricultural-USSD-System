@@ -12,7 +12,7 @@ class Farmer(User):
     def __init__(self, name, location, phone_no, pin, product_specialty, size_of_farm, role=None):
         super().__init__(name, location, phone_no, pin)
         self.product_specialty = product_specialty.strip()
-        self.size_of_farm = size_of_farm.strip()
+        self.size_of_farm = size_of_farm
         self.role = role.strip() if role else None
 
     def __str__(self):
@@ -27,4 +27,3 @@ class Buyer(User):
     def __str__(self):
         org = self.organization if self.organization else "N/A"
         return f"[BUYER] Name: {self.name}, Location: {self.location}, Phone: {self.phone_no}, Organization: {self.organization}"
-    
