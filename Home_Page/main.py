@@ -1,4 +1,4 @@
-import pwinput
+nter import pwinput
 from operate_ussd import Operators
 
 operation = Operators()
@@ -16,8 +16,8 @@ def menu():
         choice = input("Choose an option (1-6): ").strip()
 
         if choice == "1":
-            phone_no = input("Phone number: ").strip()
-            pin = pwinput.pwinput("PIN: ", mask="*")
+            phone_no = input("Enter your Phone number: ").strip()
+            pin = pwinput.pwinput("Enter your PIN: ", mask="*")
             role, users = operation.login(phone_no, pin)
             if role:
                 print(f"Login successful as {role}!")
@@ -38,7 +38,7 @@ def menu():
             operation.user_preview()
 
         elif choice == "6":
-            print("Goodbye")
+            print("Goodbye, Thank You for Providing for us!")
             break
 
         elif choice == "7":
