@@ -41,12 +41,12 @@ class Operators:
     def farmer_registration(self):
         print("\n*** Farmer Registration ***")
 
-        name = input("Name: ").strip()
+        name = input("Enter your Name: ").strip()
         if not self._is_valid_name(name):
             print("Invalid name.")
             return
 
-        location = input("Location: ").strip()
+        location = input("Enter your Location: ").strip()
         if not self._is_valid_name(location):
             print("Invalid location.")
             return
@@ -99,12 +99,12 @@ class Operators:
     def buyer_registration(self):
         print("\n*** Buyer Registration ***")
 
-        name = input("Name: ").strip()
+        name = input("Enter your Name: ").strip()
         if not self._is_valid_name(name):
             print("Invalid name.")
             return
 
-        location = input("Location: ").strip()
+        location = input("Enter your Location: ").strip()
         if not self._is_valid_name(location):
             print("Invalid location.")
             return
@@ -126,7 +126,7 @@ class Operators:
             print("PINs do not match.")
             return
 
-        organization = input("Organization (optional, press Enter to skip): ").strip()
+        organization = input("Do you have an Organization (optional, press Enter to skip): ").strip()
         if organization:
             if not self._is_valid_name(organization):
                 print("Invalid organization.")
@@ -166,9 +166,8 @@ class Operators:
     
     def pin_reset(self):
         print("\n*** Reset PIN ***")
-        phone_no = input("Enter phone number: ").strip()
+        phone_no = input("Enter your phone number: ").strip()
 
-        # find the user (buyer or seller)
         user = None
         role = None
         if phone_no in self.user["farmers"]:
@@ -182,13 +181,11 @@ class Operators:
             print("Phone number not found.")
             return
 
-        
         old_pin = pwinput.pwinput("Enter old PIN: ", mask="*")
         if old_pin != user["pin"]:
             print("Old PIN does not match.")
             return
 
-        
         new_pin = pwinput.pwinput("Enter new PIN (4 digits): ", mask="*")
         if not self._is_valid_pin(new_pin):
             print("Invalid PIN format.")
