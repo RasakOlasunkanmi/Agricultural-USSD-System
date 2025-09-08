@@ -1,0 +1,22 @@
+{
+    "farmers": {
+        "08023567823": {
+            "name": "abdulmalik adedotun",
+            "location": "abeokuta",
+            "phone_no": "08023567823",
+            "pin": "1234",
+            "product_specialty": "rice",
+            "size_of_farm": 20,
+            "role": "wholesales"
+        }
+    },
+    "buyers": {
+        "09032495758": {
+            "name": "jubril opeyemi",
+            "location": "sagamu",
+            "phone_no": "09032495758",
+            "pin": "3456",
+            "organization": "agrocrops"
+        }
+    }
+}
